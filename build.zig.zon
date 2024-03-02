@@ -2,8 +2,9 @@
   .name = "waiting-zone",
   .version = "1.0.0",
   .dependencies = .{
-    .zqlite = .{
-        .url = "git+https://github.com/karlseguin/zqlite.zig#master",
+    .raylib = .{
+        .url = "https://github.com/Not-Nik/raylib-zig/archive/f8735a8cc79db221d3c651c93778cfdb5066818d.tar.gz",
+        .hash = "1220ec9abcca33f803b667c901c8d6e9686e2206aabb1ed6712926e457c7a61e1f60"
     },
   }
 }
