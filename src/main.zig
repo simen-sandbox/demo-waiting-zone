@@ -6,7 +6,7 @@ pub fn main() anyerror!void {
 
     rl.initWindow(screenWidth, screenHeight, "raylib-zig [core] example - basic window");
     defer rl.closeWindow(); // Close window and OpenGL context
-
+    rl.toggleFullscreen();
     rl.setTargetFPS(60); // Set our demo to run at 60 frames-per-second
 
     while (!rl.windowShouldClose()) { // Detect window close button or ESC key
