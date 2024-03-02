@@ -1,0 +1,9 @@
+.{
+  .name = "waiting-zone",
+  .version = "1.0.0",
+  .dependencies = .{
+    .zqlite = .{
+        .url = "git+https://github.com/karlseguin/zqlite.zig#master",
+    },
+  }
+}
