@@ -1,11 +1,10 @@
 .{
-  .name = "waiting-zone",
-  .version = "1.0.0",
-  .dependencies = .{
-    .raylib = .{
-        .url = "https://github.com/Not-Nik/raylib-zig/archive/a106b9968fab5eae97a8f9fc85e0379358642c8d.tar.gz",
-        .hash = "1220d0ef7be0c5b634d4c9efdf001666afaa08599ac848d9440cd4a0987fce01acf7",
+    .name = "raylib-zig",
+    .version = "0.1.0",
+    .dependencies = .{
+        .raylib = .{
+            .url = "https://github.com/raysan5/raylib/archive/6094869e3e845e90e1e8ae41b98e889fb3e13e78.tar.gz",
+            .hash = "12203b7a16bcf8d7fe4c9990a46d92b6f2e35531a4b82eb3bdf8ba4a0dbcc5f21415",
+        },
     },
-  },
-  .paths = .{""},
 }

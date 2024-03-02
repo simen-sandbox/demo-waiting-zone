@@ -8,7 +8,7 @@ pub fn build(b: *std.Build) !void {
     var raylib_math = rl.math.getModule(b, "raylib-zig");
     //web exports are completely separate
     if (target.getOsTag() == .emscripten) {
-        const exe_lib = rl.compileForEmscripten(b, "waiting-zone", "src/main.zig", target, optimize);
+        const exe_lib = rl.compileForEmscripten(b, "zig-tetris", "src/main.zig", target, optimize);
         exe_lib.addModule("raylib", raylib);
         exe_lib.addModule("raylib-math", raylib_math);
         const raylib_artifact = rl.getArtifact(b, target, optimize);
@@ -18,19 +18,19 @@ pub fn build(b: *std.Build) !void {
         b.getInstallStep().dependOn(&link_step.step);
         const run_step = try rl.emscriptenRunStep(b);
         run_step.step.dependOn(&link_step.step);
-        const run_option = b.step("run", "Run waiting-zone");
+        const run_option = b.step("run", "Run zig-tetris");
         run_option.dependOn(&run_step.step);
         return;
     }
 
-    const exe = b.addExecutable(.{ .name = "waiting-zone", .root_source_file = .{ .path = "src/main.zig" }, .optimize = optimize, .target = target });
+    const exe = b.addExecutable(.{ .name = "zig-tetris", .root_source_file = .{ .path = "src/main.zig" }, .optimize = optimize, .target = target });
 
     rl.link(b, exe, target, optimize);
     exe.addModule("raylib", raylib);
     exe.addModule("raylib-math", raylib_math);
 
     const run_cmd = b.addRunArtifact(exe);
-    const run_step = b.step("run", "Run waiting-zone");
+    const run_step = b.step("run", "Run zig-tetris");
     run_step.dependOn(&run_cmd.step);
 
     b.installArtifact(exe);
