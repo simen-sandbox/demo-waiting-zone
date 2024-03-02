@@ -1,6 +1,6 @@
 const rl = @import("raylib");
 
-pub const soundData = @embedFile("music.wav");
+pub const soundData = @embedFile("music.mp3");
 
 pub fn main() anyerror!void {
     const screenWidth = 800;
@@ -11,7 +11,7 @@ pub fn main() anyerror!void {
 
     var audio_data: []const u8 = soundData[0..];
 
-    const music = rl.loadMusicStreamFromMemory("wav", audio_data);
+    const music = rl.loadMusicStreamFromMemory(".mp3", audio_data);
 
     rl.playMusicStream(music);
     rl.initWindow(screenWidth, screenHeight, "raylib-zig [core] example - basic window");
